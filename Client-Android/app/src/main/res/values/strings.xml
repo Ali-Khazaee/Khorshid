@@ -1,0 +1,11 @@
+<resources>
+    <!-- Application -->
+    <string name="AppName">Khorshid</string>
+    <string name="AppNoInternet">Check your internet connection</string>
+
+    <!-- Activity-Main -->
+    <string name="ActivityMainName">سوپر مارکت انلاین</string>
+    <string name="ActivityMainSearch">جستجو</string>
+    <string name="ActivityMainSearchHint"> اسم کالا&#8230;</string>
+
+</resources>

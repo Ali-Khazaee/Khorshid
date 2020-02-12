@@ -1,0 +1,11 @@
+<resources>
+
+    <dimen name="SpaceSmall">8dp</dimen>
+    <dimen name="SpaceMedium">16dp</dimen>
+    <dimen name="SpaceLarge">32dp</dimen>
+
+    <dimen name="FontLarge">18sp</dimen>
+    <dimen name="FontMedium">16sp</dimen>
+    <dimen name="FontSmall">14sp</dimen>
+
+</resources>
