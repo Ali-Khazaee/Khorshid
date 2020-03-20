@@ -1,5 +1,8 @@
 package app.khorshid.activity;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.speech.RecognizerIntent;
 import android.view.View;
 import android.os.Bundle;
 import android.app.Activity;
@@ -8,6 +11,7 @@ import android.widget.ImageView;
 import android.view.LayoutInflater;
 import android.animation.ValueAnimator;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -28,6 +32,7 @@ import app.khorshid.databinding.ActivityMainBinding;
 public class Main extends Activity
 {
     private ActivityMainBinding Binding;
+    private final int REQ_CODE_SPEECH_INPUT = 100;
 
     @Override
     protected void onCreate(Bundle bundle)
@@ -40,6 +45,14 @@ public class Main extends Activity
         Binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         Utility.SetEditTextColor(Binding.EditTextSearch, R.color.Primary4);
+
+        Binding.ImageViewSpeechSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                promptSpeechInput();
+            }
+        });
+
 
         Binding.ImageViewSearch.setOnClickListener(new View.OnClickListener()
         {
@@ -108,6 +121,45 @@ public class Main extends Activity
 
         Binding.RecyclerViewMain.setAdapter(AdapterProductMain);
         Binding.RecyclerViewMain.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    /**
+     * Showing google speech input dialog
+     * */
+    private void promptSpeechInput() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "fa-IR");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                "به دنبال چه میگردید؟؟");
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(),
+                    "Not Available",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Receiving speech input
+     * */
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQ_CODE_SPEECH_INPUT: {
+                if (resultCode == RESULT_OK && null != data) {
+
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    Binding.TextViewSpeechSearch.setText(result.get(0));
+                }
+                break;
+            }
+
+        }
     }
 
     private class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHolderProduct>
