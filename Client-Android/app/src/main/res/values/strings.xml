@@ -4,8 +4,10 @@
     <string name="AppNoInternet">Check your internet connection</string>
 
     <!-- Activity-Main -->
-    <string name="ActivityMainName">سوپر مارکت انلاین</string>
-    <string name="ActivityMainSearch">جستجو</string>
-    <string name="ActivityMainSearchHint"> اسم کالا&#8230;</string>
+    <string name="ActivityMainName">خورشید مارکت</string>
+    <string name="ActivityMainSearchHint"> اسم کالا&#8230;&#8230; </string>
+
+    <string name="ActivityMainRecyclerViewMainAdd">افزودن به سبد</string>
+    <string name="ActivityMainRecyclerViewMainPrice">%1$s :قیمت</string>
 
 </resources>

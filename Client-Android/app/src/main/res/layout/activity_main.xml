@@ -73,7 +73,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginEnd="12dp"
                     android:background="@null"
-                    android:textColorHighlight="@color/Primary4"
                     android:fontFamily="@font/iran_sans_light"
                     android:hint="@string/ActivityMainSearchHint"
                     android:importantForAutofill="no"
@@ -82,6 +81,7 @@
                     android:maxLength="50"
                     android:singleLine="true"
                     android:textColor="@color/Black"
+                    android:textColorHighlight="@color/Primary4"
                     android:textCursorDrawable="@drawable/general_cursor_color"
                     android:textSize="@dimen/FontMedium"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -91,6 +91,16 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewMain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/SpaceSmall"
+            android:layout_marginTop="@dimen/SpaceSmall"
+            android:layout_marginEnd="@dimen/SpaceSmall"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ConstraintLayoutSearch" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

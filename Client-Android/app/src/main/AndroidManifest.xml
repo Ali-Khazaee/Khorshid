@@ -3,12 +3,14 @@
     package="app.khorshid">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".App"
         android:allowBackup="false"
         android:icon="@drawable/activity_main_close"
         android:label="@string/AppName"
+        android:usesCleartextTraffic="true"
         android:roundIcon="@drawable/activity_main_close"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">

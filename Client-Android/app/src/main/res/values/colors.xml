@@ -20,5 +20,6 @@
     <color name="Gray3">#65737e</color>
     <color name="Gray2">#a7adba</color>
     <color name="Gray1">#c0c5ce</color>
+    <color name="Gray">#eeeeee</color>
 
 </resources>

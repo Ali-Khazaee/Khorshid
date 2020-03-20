@@ -38,7 +38,7 @@ const Main = async() =>
 
     await Server.start()
 
-    require('./File/RouteAdmin')(Server, DB)
+    require('./File/RouteClient')(Server, DB)
 
     DEBUG('Hapi', { Info: Server.info.uri })
 }
