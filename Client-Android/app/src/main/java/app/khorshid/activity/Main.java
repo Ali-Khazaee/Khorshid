@@ -26,6 +26,7 @@ import java.util.Locale;
 
 import app.khorshid.R;
 import app.khorshid.misc.Utility;
+import app.khorshid.model.Category;
 import app.khorshid.model.Product;
 import app.khorshid.databinding.ActivityMainBinding;
 
@@ -121,6 +122,11 @@ public class Main extends Activity
 
         Binding.RecyclerViewMain.setAdapter(AdapterProductMain);
         Binding.RecyclerViewMain.setLayoutManager(new LinearLayoutManager(this));
+
+        AdapterCategory adapterCategory=new AdapterCategory();
+
+        Binding.recyclerViewCategory.setAdapter(adapterCategory);
+        Binding.recyclerViewCategory.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true));
     }
 
     /**
@@ -236,4 +242,56 @@ public class Main extends Activity
             return ProductList.size();
         }
     }
+
+    private class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.ViewHolderCategory>{
+
+        private List<Category> categories = new ArrayList<>();
+
+        private AdapterCategory(){
+            categories.add(new Category(1,"لبنیات"));
+            categories.add(new Category(2,"دخانیات"));
+            categories.add(new Category(3,"شوینده"));
+            categories.add(new Category(4,"بهداشتی"));
+            categories.add(new Category(1,"لبنیات"));
+            categories.add(new Category(2,"دخانیات"));
+            categories.add(new Category(3,"شوینده"));
+            categories.add(new Category(4,"بهداشتی"));
+            categories.add(new Category(1,"لبنیات"));
+            categories.add(new Category(2,"دخانیات"));
+            categories.add(new Category(3,"شوینده"));
+            categories.add(new Category(4,"بهداشتی"));
+        }
+
+
+        @NonNull
+        @Override
+        public ViewHolderCategory onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View ViewCategory = LayoutInflater.from(Main.this).inflate(R.layout.activity_main_recyclerview_category2,parent,false);
+
+            return new ViewHolderCategory(ViewCategory);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolderCategory holder, int position) {
+            Category category = categories.get(position);
+
+            holder.TextViewNameCategory.setText(category.getName());
+        }
+
+        @Override
+        public int getItemCount() {
+            return categories.size();
+        }
+
+        public class ViewHolderCategory extends RecyclerView.ViewHolder {
+
+            private TextView TextViewNameCategory;
+
+            public ViewHolderCategory(@NonNull View itemView) {
+                super(itemView);
+                TextViewNameCategory=itemView.findViewById(R.id.TextViewCategory);
+            }
+        }
+    }
+
 }

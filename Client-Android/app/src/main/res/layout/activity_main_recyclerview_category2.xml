@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:paddingStart="9dp"
+    android:paddingEnd="9dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/TextViewCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="لبنیات"
+        android:textSize="@dimen/FontMedium"
+        android:background="@drawable/activity_main_recyclerview_main_image"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        tools:ignore="MissingConstraints">
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
